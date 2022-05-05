@@ -75,6 +75,7 @@ module.exports = {
     'no-restricted-exports': 'off',
     'no-useless-escape': 'off',
     'import/no-unresolved': 'off',
+    'no-param-reassign': 'off',
     'import/extensions': [
       'error',
       'ignorePackages',
