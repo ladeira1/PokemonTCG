@@ -6,6 +6,7 @@ const initialState: PokemonState = {
   cards: [],
   isLoading: false,
   page: 1,
+  shouldFetchMoreData: true,
 };
 
 export const pokemonSlice = createSlice({
@@ -18,13 +19,22 @@ export const pokemonSlice = createSlice({
     });
 
     builder.addCase(fetchCards.fulfilled, (state, action) => {
-      state.cards = action.payload.data;
-      state.page = action.payload.page;
+      if (action.payload === undefined) return;
+      state.cards = [...state.cards, ...action.payload.data];
+      state.page = action.payload.page + 1;
       state.isLoading = false;
+
+      if (
+        action.payload.count * action.payload.page >=
+        action.payload.totalCount
+      ) {
+        state.shouldFetchMoreData = false;
+      }
     });
 
     builder.addCase(fetchCards.rejected, state => {
       state.feedbackMessage = 'Algum erro ocorreu ao buscar os dados';
+      state.isLoading = false;
     });
   },
 });

@@ -6,7 +6,10 @@ export const fetchCards = createAsyncThunk(
   'cards/list',
   async ({ filter }: ListCardsPayload, thunkAPI) => {
     const state = thunkAPI.getState();
-    const { page } = (state as { pokemon: PokemonState }).pokemon;
+    const { page, shouldFetchMoreData } = (state as { pokemon: PokemonState })
+      .pokemon;
+
+    if (!shouldFetchMoreData) return undefined;
 
     return cardsRequest(page, filter);
   },

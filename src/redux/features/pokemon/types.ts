@@ -5,6 +5,7 @@ export interface PokemonState {
   isLoading: boolean;
   page: number;
   feedbackMessage?: string;
+  shouldFetchMoreData: boolean;
 }
 
 export interface ListCardsPayload {

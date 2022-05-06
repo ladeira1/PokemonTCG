@@ -1,18 +1,22 @@
+import { InfiniteScroller } from 'components/InfiniteScroller';
 import { useAppDispatch } from 'hooks/useAppDispatch';
 import { useAppSelector } from 'hooks/useAppSelector';
 import type { NextPage } from 'next';
 import Head from 'next/head';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { fetchCards } from 'redux/thunk/fetchCards';
 
 const Home: NextPage = () => {
-  const { cards } = useAppSelector(state => state.pokemon);
+  const { cards, isLoading } = useAppSelector(state => state.pokemon);
+
   const dispatch = useAppDispatch();
   const [filter, setFilter] = useState('');
 
-  useEffect(() => {
-    dispatch(fetchCards({ filter }));
-  }, []);
+  const handleFetchCards = () => {
+    if (!isLoading) {
+      dispatch(fetchCards({ filter }));
+    }
+  };
 
   return (
     <div>
@@ -27,11 +31,15 @@ const Home: NextPage = () => {
         onChange={e => setFilter(e.target.value)}
       />
 
-      <div>
-        {cards.map(item => (
-          <p key={item.id}>{item.name}</p>
-        ))}
-      </div>
+      <ul>
+        <InfiniteScroller onEndReached={handleFetchCards} isLoading={isLoading}>
+          {cards.map(item => (
+            <li key={item.id}>
+              <p>{item.name}</p>
+            </li>
+          ))}
+        </InfiniteScroller>
+      </ul>
     </div>
   );
 };
