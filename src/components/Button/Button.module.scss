@@ -1,0 +1,22 @@
+@use 'styles/sass/colors';
+
+.button {
+  background: colors.$brown100;
+  border: none;
+  width: 100%;
+  max-width: 400px;
+  height: 3rem;
+  border-radius: .45rem;
+
+  transition: opacity 200ms ease;
+
+  &:hover, &:focus-within {
+    opacity: 0.8;
+  }
+
+  p {
+    font-size: 1rem;
+    font-weight: 500;
+    text-transform: uppercase;
+  }
+}
