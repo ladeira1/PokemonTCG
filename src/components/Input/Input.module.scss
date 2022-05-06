@@ -1,0 +1,41 @@
+@use 'styles/sass/colors';
+
+.input {
+  background-color: colors.$brown800;
+  color: colors.$brown200;
+  
+  border: 1px solid colors.$brown200;
+  padding: 1rem;
+  border-radius: .45rem;
+  height: 3rem;
+  width: 100%;
+  max-width: 400px;
+
+  transition: border 200ms ease;
+
+  &:focus {
+    outline: none;
+    border-color: colors.$brown50;
+    font-weight: 500;
+  }
+
+  &:hover {
+    border-color: colors.$brown50;
+  }
+
+  
+  &::placeholder { 
+    color: colors.$brown200;
+    opacity: 0.5;
+  }
+  
+  &:-ms-input-placeholder { 
+    color: colors.$brown200;
+    opacity: 0.5;
+  }
+  
+  &::-ms-input-placeholder { 
+    color: colors.$brown200;
+    opacity: 0.5;
+  }
+}
