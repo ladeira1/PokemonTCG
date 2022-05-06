@@ -1,0 +1,10 @@
+@use 'styles/sass/breakpoints';
+
+.container {
+  display: flex;
+  flex-direction: row;
+
+  @media screen and (min-width: breakpoints.$small) {
+    flex-direction: column;
+  }
+}
