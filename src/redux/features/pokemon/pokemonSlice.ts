@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { fetchCardDetails } from 'redux/thunk/fetchCardDetail';
 import { fetchCards } from 'redux/thunk/fetchCards';
 import { PokemonState } from './types';
 
@@ -8,6 +9,7 @@ export const initialState: PokemonState = {
   page: 1,
   shouldFetchMoreData: true,
   feedbackMessage: undefined,
+  detailedCard: undefined,
 };
 
 export const pokemonSlice = createSlice({
@@ -26,6 +28,7 @@ export const pokemonSlice = createSlice({
     },
   },
   extraReducers: builder => {
+    // fetchCards
     builder.addCase(fetchCards.pending, state => {
       state.isLoading = true;
     });
@@ -45,6 +48,24 @@ export const pokemonSlice = createSlice({
     });
 
     builder.addCase(fetchCards.rejected, state => {
+      state.feedbackMessage = 'requestError';
+      state.isLoading = false;
+    });
+
+    // fetchCardDetails
+    builder.addCase(fetchCardDetails.pending, state => {
+      state.isLoading = true;
+      state.detailedCard = undefined;
+    });
+
+    builder.addCase(fetchCardDetails.fulfilled, (state, action) => {
+      if (action.payload === undefined) return;
+
+      state.detailedCard = action.payload.data;
+      state.isLoading = false;
+    });
+
+    builder.addCase(fetchCardDetails.rejected, state => {
       state.feedbackMessage = 'requestError';
       state.isLoading = false;
     });

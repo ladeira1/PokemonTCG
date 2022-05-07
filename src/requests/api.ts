@@ -12,3 +12,9 @@ export const cardsRequest = async (page: number, filter: string) => {
 
   return response.data;
 };
+
+export const cardDetailsRequest = async (id: string) => {
+  const response = await axios.get(`/api/cards/${id}`);
+
+  return response.data;
+};

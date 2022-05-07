@@ -1,7 +1,8 @@
+import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
 import { mockedCard } from 'mocks/card';
+import { pokemonTypeTransalation } from 'translations/pokemonType';
 import { SmallCard } from '.';
-import '@testing-library/jest-dom';
 
 jest.mock('next/router', () => {
   return {
@@ -11,6 +12,8 @@ jest.mock('next/router', () => {
     }),
   };
 });
+
+const translatedValue = pokemonTypeTransalation['pt-BR'];
 
 const renderSmallCard = () => {
   render(<SmallCard card={mockedCard} />);
@@ -33,7 +36,7 @@ describe('SmallCard test suite', () => {
     expect(tagLists).toHaveLength(2);
 
     mockedCard.types?.forEach((type, index) => {
-      expect(tagLists[index]).toHaveTextContent(type);
+      expect(tagLists[index]).toHaveTextContent(translatedValue[type]);
     });
   });
 

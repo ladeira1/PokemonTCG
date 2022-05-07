@@ -6,6 +6,15 @@ import {
   initialState,
 } from './pokemonSlice';
 
+jest.mock('next/router', () => {
+  return {
+    useRouter: () => ({
+      locale: 'pt-BR',
+      defaultLocale: 'pt-BR',
+    }),
+  };
+});
+
 describe('PokemonSlice test suite', () => {
   it('should return the initial state', () => {
     expect(pokemonReducer(undefined, {} as any)).toEqual(initialState);

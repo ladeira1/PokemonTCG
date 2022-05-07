@@ -1,17 +1,31 @@
-import { PokemonType } from 'types/Card';
+import { PokemonType, Resistance, Weakness } from 'types/Card';
 import { Tag } from '.';
 import styles from './Tag.module.scss';
 
 interface TagListProps {
-  tags?: PokemonType[];
+  title?: string;
+  tags?: PokemonType[] | Resistance[] | Weakness[];
+  valueColor?: 'Resistance' | 'Weakness';
 }
 
-export const TagList = ({ tags }: TagListProps) => {
+export const TagList = ({ title, tags, valueColor }: TagListProps) => {
+  if (!tags) return null;
+
   return (
-    <div className={`${styles.tagList} row row-overflow`}>
-      {tags?.map(tag => (
-        <Tag key={tag} type={tag} />
-      ))}
-    </div>
+    <section id="title">
+      <h3 className="tagListTitle" id={title}>
+        {title}
+      </h3>
+      <div className={`${styles.tagList} row row-overflow`}>
+        {tags?.map(tag => {
+          const type = typeof tag === 'string' ? tag : tag?.type;
+          const value = typeof tag === 'string' ? undefined : tag?.value;
+
+          return (
+            <Tag key={type} type={type} value={value} valueColor={valueColor} />
+          );
+        })}
+      </div>
+    </section>
   );
 };

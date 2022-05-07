@@ -6,8 +6,13 @@ export interface PokemonState {
   page: number;
   feedbackMessage?: string;
   shouldFetchMoreData: boolean;
+  detailedCard?: Card;
 }
 
 export interface ListCardsPayload {
   filter: string;
+}
+
+export interface CardDetailPayload {
+  id: string;
 }

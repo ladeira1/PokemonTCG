@@ -64,6 +64,10 @@
     align-items: center;
   }
 
+  section {
+    padding: 0;
+  }
+
   h2 {
     flex: 1;
     font-size: 1rem;
@@ -74,5 +78,5 @@
 
 .id {
   font-size: .85rem;
-    color: colors.$brown400;
+  color: colors.$brown400;
 }
