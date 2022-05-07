@@ -1,3 +1,5 @@
+import { useTranslation } from 'hooks/useTranslation';
+import { pokemonTypeTransalation } from 'translations/pokemonType';
 import { PokemonType } from 'types/Card';
 import styles from './Tag.module.scss';
 
@@ -8,6 +10,8 @@ interface TagProps {
 }
 
 export const Tag = ({ type, value, valueColor }: TagProps) => {
+  const translation = useTranslation(pokemonTypeTransalation);
+
   return (
     <div className={styles.container}>
       <div
@@ -19,7 +23,7 @@ export const Tag = ({ type, value, valueColor }: TagProps) => {
             {value}
           </span>
         )}
-        <p>{type}</p>
+        <p>{translation[type]}</p>
       </div>
     </div>
   );
