@@ -54,7 +54,14 @@
     background-color: colors.$brown100;
     flex: 1;
     margin: 0 1rem;
+    padding: 1rem;
     border-radius: .75rem;
+    position: relative;
+    overflow-x: scroll;
+
+    @media screen and (min-width: breakpoints.$medium) {
+      overflow-x: hidden;
+    }
   }
 
   ul {

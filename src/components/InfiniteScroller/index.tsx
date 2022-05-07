@@ -1,31 +1,31 @@
-import React, { ReactNode, useCallback, useEffect, useRef } from 'react';
+import { useAppSelector } from 'hooks/useAppSelector';
+import React, { ReactNode, useEffect, useRef } from 'react';
 import styles from './InfiniteScroller.module.scss';
 
 interface InfiniteScrollerProps {
   onEndReached: () => void;
-  isLoading?: boolean;
   children: ReactNode;
 }
 
 export const InfiniteScroller = ({
   onEndReached,
-  isLoading = false,
   children,
 }: InfiniteScrollerProps) => {
+  const { shouldFetchMoreData } = useAppSelector(state => state.pokemon);
   const loader = useRef(null);
   let isFetching = false;
 
-  const handleObserver = useCallback((entries: any) => {
+  const handleObserver = (entries: any) => {
     const target = entries[0];
 
-    if (target.isIntersecting && !isFetching) {
+    if (target.isIntersecting && !isFetching && shouldFetchMoreData) {
       isFetching = true;
       onEndReached();
       setTimeout(() => {
         isFetching = false;
       }, 300);
     }
-  }, []);
+  };
 
   useEffect(() => {
     const option = {
@@ -43,8 +43,7 @@ export const InfiniteScroller = ({
   return (
     <div className={styles.container}>
       <div className={styles.container}>{children}</div>
-      {isLoading && <p>Loading...</p>}
-      <div ref={loader} className="a" />
+      <div ref={loader} />
     </div>
   );
 };
