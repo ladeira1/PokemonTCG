@@ -3,7 +3,7 @@ export interface Card {
   name: string;
   types?: PokemonType[];
   weaknesses?: Weakness[];
-  resistances?: Resistances[];
+  resistances?: Resistance[];
   attacks?: Attack[];
   images: CardImage;
 }
@@ -21,12 +21,12 @@ export type PokemonType =
   | 'Psychic'
   | 'Water';
 
-interface Weakness {
-  type: string;
+export interface Weakness {
+  type: PokemonType;
   value: string;
 }
 
-type Resistances = Weakness;
+export type Resistance = Weakness;
 
 interface Attack {
   name: string;
