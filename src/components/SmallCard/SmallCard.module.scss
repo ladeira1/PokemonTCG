@@ -1,0 +1,52 @@
+@use 'styles/sass/colors';
+@use 'styles/sass/breakpoints';
+
+.card {
+  border: 1px solid colors.$brown400;
+  background-color: colors.$brown200;
+  border-radius: .5rem;
+  max-width: 300px;
+  height: 100%;
+
+  & > div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    padding: .75rem;
+
+    img {
+      flex-shrink: 0;
+      min-width: 100%;
+      min-height: 100%;
+    }
+  }
+  
+  @media screen and (min-width: breakpoints.$small) {
+    width: 100%;
+  }
+
+  section {
+    flex: 1;
+    padding: 0 1rem;
+  }
+}
+
+.title {
+  & > div {
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  h2 {
+    flex: 1;
+    font-size: 1rem;
+    font-weight: 500;
+    color: colors.$brown800;
+  }
+
+  p {
+    font-size: .85rem;
+    color: colors.$brown400;
+  }
+}
