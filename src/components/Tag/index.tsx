@@ -7,7 +7,10 @@ interface TagProps {
 
 export const Tag = ({ type }: TagProps) => {
   return (
-    <div className={`${styles.tag} ${styles[`color-${type}`]}`}>
+    <div
+      data-testid="tag"
+      className={`${styles.tag} ${styles[`color-${type}`]}`}
+    >
       <p>{type}</p>
     </div>
   );
