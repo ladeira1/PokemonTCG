@@ -48,7 +48,7 @@ const AttackModalBase: ForwardRefRenderFunction<
         aria-labelledby={attack.name}
         className={styles.content}
       >
-        <header className="row">
+        <header className={`row ${styles.header}`}>
           <h2 id={attack.name}>{attack.name}</h2>
           <button type="button" onClick={onClose}>
             <MdClose />
