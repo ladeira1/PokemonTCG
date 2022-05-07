@@ -12,7 +12,7 @@ export const SmallCard = ({ card }: SmallCardProps) => {
   const { imageAlt } = useTranslation(smallCardTranslations);
 
   return (
-    <article className={styles.card}>
+    <article data-testid="small-card" className={styles.card}>
       <div>
         <img
           loading="lazy"

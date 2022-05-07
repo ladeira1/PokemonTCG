@@ -30,7 +30,7 @@ type Resistances = Weakness;
 
 interface Attack {
   name: string;
-  const: PokemonType[];
+  cost: PokemonType[];
   convertedEnergyCost: number;
   damage: string;
   text: string;
