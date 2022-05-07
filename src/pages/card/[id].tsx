@@ -22,7 +22,7 @@ const CardDetails = () => {
 
   const router = useRouter();
 
-  const { headContent } = useTranslation(cardDetailsTranslations);
+  const { headContent, logoAlt } = useTranslation(cardDetailsTranslations);
 
   const { error } = useToast();
 
@@ -43,7 +43,7 @@ const CardDetails = () => {
   return (
     <div className={styles.container}>
       <Head>
-        <title>Pokemon TCG</title>
+        <title>Pokemon TCG | {detailedCard?.name}</title>
         <meta name="description" content={headContent} />
       </Head>
 
@@ -57,11 +57,7 @@ const CardDetails = () => {
         <div className={styles.imageContainer}>
           <Link passHref href="/">
             <a className={styles.link}>
-              <img
-                data-testid="logo"
-                src="/logo.png"
-                alt="Pokemon Trading Card Game logo"
-              />
+              <img data-testid="logo" src="/logo.png" alt={logoAlt} />
             </a>
           </Link>
         </div>

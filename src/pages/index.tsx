@@ -25,7 +25,7 @@ const Home: NextPage = () => {
   const dispatch = useAppDispatch();
   const [filter, setFilter] = useState('');
 
-  const { filterInputPlaceholder, search, headContent, requestError } =
+  const { filterInputPlaceholder, logoAlt, search, headContent, requestError } =
     useTranslation(homeTranslations);
 
   const { error } = useToast();
@@ -55,11 +55,7 @@ const Home: NextPage = () => {
       </Head>
 
       <header>
-        <img
-          data-testid="logo"
-          src="/logo.png"
-          alt="Pokemon Trading Card Game logo"
-        />
+        <img data-testid="logo" src="/logo.png" alt={logoAlt} />
         <section aria-labelledby="filter-area">
           <h1 id="filter-area" className="accessibilityOnly">
             Filter input

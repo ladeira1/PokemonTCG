@@ -4,6 +4,8 @@ import { Button } from 'components/Button';
 import { useRef, useState } from 'react';
 import { Spinner } from 'components/Spinner';
 import { AttackModal } from 'components/AttackModal';
+import { useTranslation } from 'hooks/useTranslation';
+import { detailedCardTranslations } from 'translations/detailedCard';
 import styles from './DetailedCard.module.scss';
 
 interface DetailedCardProps {
@@ -15,6 +17,19 @@ export const DetailedCard = ({ card }: DetailedCardProps) => {
   const [isLoading, setIsLoading] = useState(true);
   const [selectedAttack, setSelectedAttack] = useState<Attack>();
 
+  const {
+    cardImage,
+    largeCardAlt,
+    typeSingular,
+    typePlural,
+    resistanceSingular,
+    resistancePlural,
+    weaknessSingular,
+    weaknessPlural,
+    attackSingular,
+    attackPlural,
+  } = useTranslation(detailedCardTranslations);
+
   const handleClick = (attack: Attack) => {
     setSelectedAttack(attack);
     attackModalRef?.current?.onOpen();
@@ -24,12 +39,12 @@ export const DetailedCard = ({ card }: DetailedCardProps) => {
     <article className={styles.container}>
       <section className={styles.imageContainer} aria-labelledby="card-image">
         <h1 className="accessibilityOnly" id="card-image">
-          Card Image
+          {cardImage}
         </h1>
         <img
           className={styles.image}
           src={card.images.large}
-          alt={`${card.name} large card`}
+          alt={`${largeCardAlt}: ${card.name}`}
           onLoad={() => setIsLoading(false)}
         />
       </section>
@@ -46,43 +61,51 @@ export const DetailedCard = ({ card }: DetailedCardProps) => {
           </div>
 
           <TagList
-            title={`Tipo${
-              card.resistances && card.resistances?.length > 1 ? 's' : ''
-            }`}
+            title={
+              card.resistances && card.resistances?.length > 1
+                ? typePlural
+                : typeSingular
+            }
             tags={card.types}
           />
           <TagList
-            title={`Resistência${
-              card.resistances && card.resistances?.length > 1 ? 's' : ''
-            }`}
+            title={
+              card.resistances && card.resistances?.length > 1
+                ? resistancePlural
+                : resistanceSingular
+            }
             tags={card.resistances}
             valueColor="Resistance"
           />
           <TagList
-            title={`Fraqueza${
-              card.resistances && card.resistances?.length > 1 ? 's' : ''
-            }`}
+            title={
+              card.weaknesses && card.weaknesses?.length > 1
+                ? weaknessPlural
+                : weaknessSingular
+            }
             tags={card.weaknesses}
             valueColor="Weakness"
           />
 
-          <section
-            aria-labelledby="attacks"
-            className={styles.attacksContainer}
-          >
-            <h3 className="tagListTitle" id="attacks">
-              Ataques
-            </h3>
-            <ul>
-              {card.attacks?.map(attack => (
-                <li key={attack.name}>
-                  <Button onClick={() => handleClick(attack)}>
-                    {attack.name}
-                  </Button>
-                </li>
-              ))}
-            </ul>
-          </section>
+          {card?.attacks && (
+            <section
+              aria-labelledby="attacks"
+              className={styles.attacksContainer}
+            >
+              <h3 className="tagListTitle" id="attacks">
+                {card?.attacks?.length > 1 ? attackPlural : attackSingular}
+              </h3>
+              <ul>
+                {card.attacks?.map(attack => (
+                  <li key={attack.name}>
+                    <Button onClick={() => handleClick(attack)}>
+                      {attack.name}
+                    </Button>
+                  </li>
+                ))}
+              </ul>
+            </section>
+          )}
         </section>
       )}
 
