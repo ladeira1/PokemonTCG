@@ -1,5 +1,5 @@
 import React, { ReactNode, useCallback, useEffect, useRef } from 'react';
-import styles from './infiniteScroller.module.scss';
+import styles from './InfiniteScroller.module.scss';
 
 interface InfiniteScrollerProps {
   onEndReached: () => void;
