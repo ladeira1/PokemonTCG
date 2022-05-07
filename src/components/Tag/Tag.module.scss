@@ -1,0 +1,107 @@
+@use 'sass:map';
+@use 'styles/sass/colors';
+
+.tagList {
+  margin-top: 1rem;
+  margin-bottom: .5rem;
+  display: flex;
+  overflow-x: scroll;
+  gap: .75rem;
+
+  scrollbar-width: thin;
+  -ms-overflow-style: none;
+  &::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 24px;
+  }
+}
+
+.tag {
+  padding: .75rem 1.5rem;
+  border-radius: 2rem;
+
+  p {
+    font-size: .75rem;
+  }
+}
+
+.color-Colorless {
+  background-color: map-get(colors.$colorsByPokemonType, Colorless);
+  p {
+    color: colors.$brown800;
+  }
+}
+
+.color-Darkness {
+  background-color: map-get(colors.$colorsByPokemonType, Darkness);
+  p {
+    color: colors.$brown100;
+  }
+}
+
+.color-Dragon {
+  background-color: map-get(colors.$colorsByPokemonType, Dragon);
+  p {
+    color: colors.$brown800;
+  }
+}
+
+.color-Fairy {
+  background-color: map-get(colors.$colorsByPokemonType, Fairy);
+  p {
+    color: colors.$brown100;
+  }
+}
+
+.color-Fighting {
+  background-color: map-get(colors.$colorsByPokemonType, Fighting);
+  p {
+    color: colors.$brown100;
+  }
+}
+
+.color-Fire {
+  background-color: map-get(colors.$colorsByPokemonType, Fire);
+  p {
+    color: colors.$brown800;
+  }
+}
+
+.color-Grass {
+  background-color: map-get(colors.$colorsByPokemonType, Grass);
+  p {
+    color: colors.$brown800;
+  }
+}
+
+.color-Lightning {
+  background-color: map-get(colors.$colorsByPokemonType, Lightning);
+  p {
+    color: colors.$brown800;
+  }
+}
+
+.color-Metal {
+  background-color: map-get(colors.$colorsByPokemonType, Metal);
+  p {
+    color: colors.$brown800;
+  }
+}
+
+.color-Psychic {
+  background-color: map-get(colors.$colorsByPokemonType, Psychic);
+  p {
+    color: colors.$brown800;
+  }
+}
+
+.color-Water {
+  background-color: map-get(colors.$colorsByPokemonType, Water);
+  p {
+    color: colors.$brown800;
+  }
+}
