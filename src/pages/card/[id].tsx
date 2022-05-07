@@ -1,12 +1,31 @@
+import { useAppDispatch } from 'hooks/useAppDispatch';
+import { useAppSelector } from 'hooks/useAppSelector';
 import { useTranslation } from 'hooks/useTranslation';
 import Head from 'next/head';
+import Link from 'next/link';
+import { useRouter } from 'next/router';
+import { useEffect } from 'react';
+import { MdChevronLeft } from 'react-icons/md';
+import { fetchCardDetails } from 'redux/thunk/fetchCardDetail';
+import { cardDetailsRequest } from 'requests/api';
 import styles from 'styles/pages/CardDetails.module.scss';
 import { cardDetailsTranslations } from 'translations/cardDetails';
-import { MdChevronLeft } from 'react-icons/md';
-import Link from 'next/link';
 
 const CardDetails = () => {
+  const { detailedCard } = useAppSelector(state => state.pokemon);
+  const dispatch = useAppDispatch();
+
+  const router = useRouter();
+
   const { headContent } = useTranslation(cardDetailsTranslations);
+
+  const { id } = router.query;
+
+  console.log(detailedCard);
+
+  useEffect(() => {
+    if (id) dispatch(fetchCardDetails({ id: id as string }));
+  }, [id]);
 
   return (
     <div className={styles.container}>
