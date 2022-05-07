@@ -8,6 +8,8 @@ import {
 import { Attack } from 'types/Card';
 import { MdClose } from 'react-icons/md';
 import { GiPointySword, GiRollingEnergy } from 'react-icons/gi';
+import { useTranslation } from 'hooks/useTranslation';
+import { attackModalTranslations } from 'translations/attackModal';
 import styles from './AttackModal.module.scss';
 
 export interface AttackModalHandler {
@@ -23,6 +25,8 @@ const AttackModalBase: ForwardRefRenderFunction<
   AttackModalProps
 > = ({ attack }: AttackModalProps, ref) => {
   const [isOpen, setIsOpen] = useState(false);
+
+  const { cost, damage, description } = useTranslation(attackModalTranslations);
 
   const onOpen = () => setIsOpen(true);
   const onClose = () => setIsOpen(false);
@@ -57,7 +61,7 @@ const AttackModalBase: ForwardRefRenderFunction<
 
         {attack.convertedEnergyCost && (
           <section>
-            <h3>Custo:</h3>
+            <h3>{cost}</h3>
             <ul className={`row ${styles.attribute}`}>
               {attack.cost.map((energy, index) => (
                 <li key={index} className={`${styles[`color-${energy}`]}`}>
@@ -72,7 +76,7 @@ const AttackModalBase: ForwardRefRenderFunction<
 
         {attack?.damage && (
           <section>
-            <h3>Dano:</h3>
+            <h3>{damage}</h3>
             <div className={`row ${styles.attribute}`}>
               <GiPointySword />
 
@@ -83,7 +87,7 @@ const AttackModalBase: ForwardRefRenderFunction<
 
         {attack?.text && (
           <section>
-            <h3>Descrição:</h3>
+            <h3>{description}</h3>
             <p className={styles.description}>{attack.text}</p>
           </section>
         )}

@@ -6,25 +6,6 @@
   flex-direction: column;
   max-width: 1280px;
   margin: 0 auto;
-  
-  header {
-    display: flex;
-    padding: 2rem 1rem;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    gap: 1rem;
-
-    svg {
-      color: colors.$brown200;
-      font-size: 2rem;
-
-      @media screen and (min-width: breakpoints.$medium) { 
-        font-size: 3rem;
-      }
-    }
-
-  }
 
   main {
     background-color: colors.$brown100;
@@ -33,6 +14,25 @@
     padding: 1rem;
     border-radius: .75rem;
   }
+}
+
+.header {
+  display: flex;
+  padding: 2rem 1rem;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+
+  svg {
+    color: colors.$brown200;
+    font-size: 2rem;
+
+    @media screen and (min-width: breakpoints.$medium) { 
+      font-size: 3rem;
+    }
+  }
+
 }
 
 .link {

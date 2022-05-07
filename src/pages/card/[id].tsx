@@ -47,7 +47,7 @@ const CardDetails = () => {
         <meta name="description" content={headContent} />
       </Head>
 
-      <header>
+      <header className={styles.header}>
         <Link passHref href="/">
           <a className={styles.link}>
             <MdChevronLeft />
