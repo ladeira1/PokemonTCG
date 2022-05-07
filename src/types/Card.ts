@@ -8,7 +8,7 @@ export interface Card {
   images: CardImage;
 }
 
-type PokemonType =
+export type PokemonType =
   | 'Colorless'
   | 'Darkness'
   | 'Dragon'

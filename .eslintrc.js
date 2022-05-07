@@ -37,6 +37,7 @@ module.exports = {
     'prettier/prettier': ['error', prettierOptions],
     semi: [2, 'always'],
     'arrow-body-style': 'off',
+    'react/no-array-index-key': 'off',
     '@typescript-eslint/explicit-module-boundary-types': 'off',
     'import/prefer-default-export': 'off',
     'no-nested-ternary': 'error',

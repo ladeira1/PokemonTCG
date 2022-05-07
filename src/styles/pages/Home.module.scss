@@ -1,0 +1,52 @@
+@use 'styles/sass/colors';
+@use 'styles/sass/breakpoints';
+
+.container {
+  display: flex;
+  flex-direction: column;
+  overflow-y: scroll;
+
+  header {
+    display: flex;
+    padding: 2rem 1rem;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+
+    img {
+      height: 8rem;
+    }
+
+    section {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      gap: 1rem;
+    }
+  }
+
+  main {
+    background-color: colors.$brown100;
+    flex: 1;
+    margin: 0 1rem;
+    border-radius: .75rem;
+  }
+
+  ul {
+    padding: 0 1rem;
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    grid-auto-flow: column;
+
+    @media screen and (min-width: breakpoints.$small) {
+      grid-auto-flow: row;
+    }
+  }
+
+  @media screen and (min-width: breakpoints.$medium) {
+    height: 100vh;
+  }
+}
