@@ -55,7 +55,11 @@ const Home: NextPage = () => {
       </Head>
 
       <header>
-        <img src="/logo.png" alt="Pokemon Trading Card Game logo" />
+        <img
+          data-testid="logo"
+          src="/logo.png"
+          alt="Pokemon Trading Card Game logo"
+        />
         <section aria-labelledby="filter-area">
           <h1 id="filter-area" className="accessibility-only">
             Filter input
