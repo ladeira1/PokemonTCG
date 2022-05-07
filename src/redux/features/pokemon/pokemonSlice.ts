@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 import { fetchCards } from 'redux/thunk/fetchCards';
 import { PokemonState } from './types';
 
-const initialState: PokemonState = {
+export const initialState: PokemonState = {
   cards: [],
   isLoading: false,
   page: 1,
