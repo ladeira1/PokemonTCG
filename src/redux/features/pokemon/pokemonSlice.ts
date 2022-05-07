@@ -21,6 +21,9 @@ export const pokemonSlice = createSlice({
       state.shouldFetchMoreData = initialState.shouldFetchMoreData;
       state.feedbackMessage = initialState.feedbackMessage;
     },
+    resetCardsFeedbackMessage: state => {
+      state.feedbackMessage = initialState.feedbackMessage;
+    },
   },
   extraReducers: builder => {
     builder.addCase(fetchCards.pending, state => {
@@ -48,5 +51,6 @@ export const pokemonSlice = createSlice({
   },
 });
 
-export const { resetCardsState } = pokemonSlice.actions;
+export const { resetCardsState, resetCardsFeedbackMessage } =
+  pokemonSlice.actions;
 export const pokemonReducer = pokemonSlice.reducer;

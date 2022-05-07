@@ -5,25 +5,30 @@ import { SmallCard } from 'components/SmallCard';
 import { Spinner } from 'components/Spinner';
 import { useAppDispatch } from 'hooks/useAppDispatch';
 import { useAppSelector } from 'hooks/useAppSelector';
+import { useToast } from 'hooks/useToast';
 import { useTranslation } from 'hooks/useTranslation';
 import type { NextPage } from 'next';
 import Head from 'next/head';
-import { useState } from 'react';
-import { resetCardsState } from 'redux/features/pokemon/pokemonSlice';
+import { useEffect, useState } from 'react';
+import {
+  resetCardsFeedbackMessage,
+  resetCardsState,
+} from 'redux/features/pokemon/pokemonSlice';
 import { fetchCards } from 'redux/thunk/fetchCards';
 import styles from 'styles/pages/Home.module.scss';
 import { homeTranslations } from 'translations/home';
 
 const Home: NextPage = () => {
-  const { cards, isLoading, shouldFetchMoreData } = useAppSelector(
-    state => state.pokemon,
-  );
+  const { cards, isLoading, shouldFetchMoreData, feedbackMessage } =
+    useAppSelector(state => state.pokemon);
 
   const dispatch = useAppDispatch();
   const [filter, setFilter] = useState('');
 
-  const { filterInputPlaceholder, search, headContent } =
+  const { filterInputPlaceholder, search, headContent, requestError } =
     useTranslation(homeTranslations);
+
+  const { error } = useToast();
 
   const handleFetchCards = () => {
     if (!isLoading && shouldFetchMoreData) {
@@ -34,6 +39,13 @@ const Home: NextPage = () => {
   const handleReset = () => {
     dispatch(resetCardsState());
   };
+
+  useEffect(() => {
+    if (feedbackMessage) {
+      error(requestError);
+      dispatch(resetCardsFeedbackMessage());
+    }
+  }, [feedbackMessage]);
 
   return (
     <div className={styles.container}>
