@@ -61,7 +61,7 @@ const Home: NextPage = () => {
           alt="Pokemon Trading Card Game logo"
         />
         <section aria-labelledby="filter-area">
-          <h1 id="filter-area" className="accessibility-only">
+          <h1 id="filter-area" className="accessibilityOnly">
             Filter input
           </h1>
           <div>

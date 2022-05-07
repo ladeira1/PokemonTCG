@@ -102,6 +102,12 @@ button {
   width: 100%;
 }
 
-.accessibility-only {
+.accessibilityOnly {
   display: none;
+}
+
+.tagListTitle {
+  color: colors.$brown600;
+  font-size: 1.05rem;
+  font-weight: 500;
 }

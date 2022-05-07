@@ -4,7 +4,7 @@
 .container {
   display: flex;
   flex-direction: column;
-  max-width: 720px;
+  max-width: 1280px;
   margin: 0 auto;
   
   header {
@@ -24,6 +24,14 @@
       }
     }
 
+  }
+
+  main {
+    background-color: colors.$brown100;
+    flex: 1;
+    margin: 0 1rem;
+    padding: 1rem;
+    border-radius: .75rem;
   }
 }
 
