@@ -5,12 +5,14 @@ import { SmallCard } from 'components/SmallCard';
 import { Spinner } from 'components/Spinner';
 import { useAppDispatch } from 'hooks/useAppDispatch';
 import { useAppSelector } from 'hooks/useAppSelector';
+import { useTranslation } from 'hooks/useTranslation';
 import type { NextPage } from 'next';
 import Head from 'next/head';
 import { useState } from 'react';
 import { resetCardsState } from 'redux/features/pokemon/pokemonSlice';
 import { fetchCards } from 'redux/thunk/fetchCards';
 import styles from 'styles/pages/Home.module.scss';
+import { homeTranslations } from 'translations/home';
 
 const Home: NextPage = () => {
   const { cards, isLoading, shouldFetchMoreData } = useAppSelector(
@@ -19,6 +21,9 @@ const Home: NextPage = () => {
 
   const dispatch = useAppDispatch();
   const [filter, setFilter] = useState('');
+
+  const { filterInputPlaceholder, search, headContent } =
+    useTranslation(homeTranslations);
 
   const handleFetchCards = () => {
     if (!isLoading && shouldFetchMoreData) {
@@ -34,7 +39,7 @@ const Home: NextPage = () => {
     <div className={styles.container}>
       <Head>
         <title>Pokemon TCG</title>
-        <meta name="description" content="List of Pokemon TCG cards" />
+        <meta name="description" content={headContent} />
       </Head>
 
       <header>
@@ -46,10 +51,10 @@ const Home: NextPage = () => {
           <div>
             <Input
               value={filter}
-              placeholder="Insira o nome do pokemon..."
+              placeholder={filterInputPlaceholder}
               onChange={e => setFilter(e.target.value)}
             />
-            <Button onClick={handleReset}>Buscar</Button>
+            <Button onClick={handleReset}>{search}</Button>
           </div>
         </section>
       </header>

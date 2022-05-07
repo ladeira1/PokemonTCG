@@ -42,7 +42,7 @@ export const pokemonSlice = createSlice({
     });
 
     builder.addCase(fetchCards.rejected, state => {
-      state.feedbackMessage = 'Algum erro ocorreu ao buscar os dados';
+      state.feedbackMessage = 'requestError';
       state.isLoading = false;
     });
   },
