@@ -11,6 +11,7 @@ export const SmallCard = ({ card }: SmallCardProps) => {
     <article className={styles.card}>
       <div>
         <img
+          loading="lazy"
           src={card.images.small}
           alt={`Card showing the details of a Pokemon named ${card.name}`}
         />

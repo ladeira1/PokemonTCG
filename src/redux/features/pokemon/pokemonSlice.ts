@@ -7,12 +7,21 @@ const initialState: PokemonState = {
   isLoading: false,
   page: 1,
   shouldFetchMoreData: true,
+  feedbackMessage: undefined,
 };
 
 export const pokemonSlice = createSlice({
   name: 'pokemon',
   initialState,
-  reducers: {},
+  reducers: {
+    resetCardsState: state => {
+      state.cards = initialState.cards;
+      state.isLoading = initialState.isLoading;
+      state.page = initialState.page;
+      state.shouldFetchMoreData = initialState.shouldFetchMoreData;
+      state.feedbackMessage = initialState.feedbackMessage;
+    },
+  },
   extraReducers: builder => {
     builder.addCase(fetchCards.pending, state => {
       state.isLoading = true;
@@ -39,4 +48,5 @@ export const pokemonSlice = createSlice({
   },
 });
 
+export const { resetCardsState } = pokemonSlice.actions;
 export const pokemonReducer = pokemonSlice.reducer;
