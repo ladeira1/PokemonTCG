@@ -16,6 +16,7 @@ export const Input = ({
 }: InputProps) => {
   return (
     <input
+      data-testid="input"
       className={styles.input}
       placeholder={placeholder}
       type={type}
