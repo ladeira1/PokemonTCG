@@ -15,7 +15,7 @@ export const SmallCard = ({ card }: SmallCardProps) => {
   return (
     <article data-testid="small-card" className={styles.card}>
       <Link passHref href={`/card/${card.id}`}>
-        <a className={styles.link}>
+        <a data-testid="small-card-anchor" className={styles.link}>
           <div>
             <img
               loading="lazy"

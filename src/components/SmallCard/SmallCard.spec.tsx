@@ -76,4 +76,10 @@ describe('SmallCard test suite', () => {
       expect(tag).not.toHaveTextContent('Fire');
     });
   });
+
+  it('should have the correct link', () => {
+    const anchor = screen.getByTestId('small-card-anchor');
+
+    expect(anchor).toHaveAttribute('href', `/card/${mockedCard.id}`);
+  });
 });
