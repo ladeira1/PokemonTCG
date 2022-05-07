@@ -1,0 +1,171 @@
+@use 'sass:map';
+@use 'styles/sass/colors';
+@use 'styles/sass/breakpoints';
+
+.container {
+  position: fixed;
+  transform:scale(0);
+  z-index: 10;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: transparent;
+
+  transition: transform 350ms ease, background-color 1s ease;
+}
+
+.containerOpen {
+  transform: scale(1);
+  background-color: rgba(0,0,0,0.5);
+}
+
+.content {
+  margin: 15% auto;
+  max-width: 90%;
+  z-index: 20;
+  background-color: colors.$brown200;
+  border-radius: .75rem;
+  padding: 2rem 2.5rem;
+
+  header {
+    padding: 0;
+    justify-content: space-between;
+    align-items: center;
+
+    transition: opacity 200ms ease;
+
+    h2 {
+      font-size: 1.75rem;
+      color: colors.$brown600;
+      font-weight: 500;
+    }
+
+    button {
+      background-color: transparent;
+      border: none;
+
+      svg {
+        color: colors.$brown600;
+        font-size: 1.75rem;
+      }
+
+      :hover {
+        opacity: .8;
+      }
+    }
+  }
+
+  section {
+    margin-top: 2rem;
+
+    h3 {
+      font-size: 1.25rem;
+      font-weight: 500;
+      color: colors.$brown600;
+      margin-bottom: 1rem;
+    }
+  }
+
+
+  @media screen and (min-width: breakpoints.$medium) {
+    max-width: 60%;
+  }
+}
+
+.attribute {
+  padding-left: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: .25rem;
+
+  li {
+    display: flex;
+  }
+
+  svg {
+    color: colors.$red;
+    font-size: 2rem;
+  }
+
+  p {
+    font-size: 1.75rem;
+    font-weight: 500;
+    color: colors.$brown600;
+    margin-left: .25rem;
+  }
+}
+
+.description {
+  font-size: 1rem;
+    font-weight: 400;
+    color: colors.$brown400;
+}
+
+.color-Colorless {
+  svg {
+    color: map-get(colors.$colorsByPokemonType, Colorless);
+  }
+}
+
+.color-Darkness {
+  svg {
+    color: map-get(colors.$colorsByPokemonType, Darkness);
+  }
+}
+
+.color-Dragon {
+  svg {
+    color: map-get(colors.$colorsByPokemonType, Dragon);
+  }
+}
+
+.color-Fairy {
+  svg {
+    color: map-get(colors.$colorsByPokemonType, Fairy);
+  }
+}
+
+.color-Fighting {
+  svg {
+    color: map-get(colors.$colorsByPokemonType, Fighting);
+  }
+}
+
+.color-Fire {
+  svg {
+    color: map-get(colors.$colorsByPokemonType, Fire);
+  }
+}
+
+.color-Grass {
+  svg {
+    color: map-get(colors.$colorsByPokemonType, Grass);
+  }
+}
+
+.color-Lightning {
+  svg {
+    color: map-get(colors.$colorsByPokemonType, Lightning);
+  }
+}
+
+.color-Metal {
+  svg {
+    color: map-get(colors.$colorsByPokemonType, Metal);
+  }
+}
+
+.color-Psychic {
+  svg {
+    color: map-get(colors.$colorsByPokemonType, Psychic);
+  }
+}
+
+.color-Water {
+  svg {
+    color: map-get(colors.$colorsByPokemonType, Water);
+  }
+}

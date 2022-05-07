@@ -28,7 +28,7 @@ export interface Weakness {
 
 export type Resistance = Weakness;
 
-interface Attack {
+export interface Attack {
   name: string;
   cost: PokemonType[];
   convertedEnergyCost: number;

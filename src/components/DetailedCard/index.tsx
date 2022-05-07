@@ -1,20 +1,23 @@
-import { Card } from 'types/Card';
+import { Attack, Card } from 'types/Card';
 import { TagList } from 'components/Tag/TagList';
 import { Button } from 'components/Button';
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import { Spinner } from 'components/Spinner';
+import { AttackModal } from 'components/AttackModal';
 import styles from './DetailedCard.module.scss';
 
 interface DetailedCardProps {
   card: Card;
-  onClick?: () => void;
 }
 
-export const DetailedCard = ({ card, onClick }: DetailedCardProps) => {
+export const DetailedCard = ({ card }: DetailedCardProps) => {
+  const attackModalRef = useRef<any>(null);
   const [isLoading, setIsLoading] = useState(true);
+  const [selectedAttack, setSelectedAttack] = useState<Attack>();
 
-  const handleClick = () => {
-    if (onClick) onClick();
+  const handleClick = (attack: Attack) => {
+    setSelectedAttack(attack);
+    attackModalRef?.current?.onOpen();
   };
 
   return (
@@ -73,13 +76,17 @@ export const DetailedCard = ({ card, onClick }: DetailedCardProps) => {
             <ul>
               {card.attacks?.map(attack => (
                 <li key={attack.name}>
-                  <Button onClick={handleClick}>{attack.name}</Button>
+                  <Button onClick={() => handleClick(attack)}>
+                    {attack.name}
+                  </Button>
                 </li>
               ))}
             </ul>
           </section>
         </section>
       )}
+
+      <AttackModal attack={selectedAttack} ref={attackModalRef} />
     </article>
   );
 };
