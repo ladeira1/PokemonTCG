@@ -24,7 +24,7 @@ export const SmallCard = ({ card }: SmallCardProps) => {
       <section className={styles.title} aria-labelledby={card.name}>
         <div className="row">
           <h2 id={card.name}>{card.name}</h2>
-          <p>{card.id}</p>
+          <p className={styles.id}>{card.id}</p>
         </div>
 
         <TagList tags={card?.types} />

@@ -32,7 +32,7 @@
 .color-Colorless {
   background-color: map-get(colors.$colorsByPokemonType, Colorless);
   p {
-    color: colors.$brown800;
+    color: colors.$black;
   }
 }
 
@@ -46,7 +46,7 @@
 .color-Dragon {
   background-color: map-get(colors.$colorsByPokemonType, Dragon);
   p {
-    color: colors.$brown800;
+    color: colors.$black;
   }
 }
 
@@ -67,41 +67,41 @@
 .color-Fire {
   background-color: map-get(colors.$colorsByPokemonType, Fire);
   p {
-    color: colors.$brown800;
+    color: colors.$black;
   }
 }
 
 .color-Grass {
   background-color: map-get(colors.$colorsByPokemonType, Grass);
   p {
-    color: colors.$brown800;
+    color: colors.$black;
   }
 }
 
 .color-Lightning {
   background-color: map-get(colors.$colorsByPokemonType, Lightning);
   p {
-    color: colors.$brown800;
+    color: colors.$black;
   }
 }
 
 .color-Metal {
   background-color: map-get(colors.$colorsByPokemonType, Metal);
   p {
-    color: colors.$brown800;
+    color: colors.$black;
   }
 }
 
 .color-Psychic {
   background-color: map-get(colors.$colorsByPokemonType, Psychic);
   p {
-    color: colors.$brown800;
+    color: colors.$black;
   }
 }
 
 .color-Water {
   background-color: map-get(colors.$colorsByPokemonType, Water);
   p {
-    color: colors.$brown800;
+    color: colors.$black;
   }
 }
