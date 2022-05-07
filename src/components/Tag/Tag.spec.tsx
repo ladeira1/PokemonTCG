@@ -4,8 +4,21 @@ import { PokemonType } from 'types/Card';
 import { Tag } from '.';
 import '@testing-library/jest-dom';
 
+jest.mock('next/router', () => {
+  return {
+    useRouter: () => ({
+      locale: 'pt-BR',
+      defaultLocale: 'pt-BR',
+    }),
+  };
+});
+
 const renderTag = (type: PokemonType = 'Fairy') => {
   render(<Tag type={type} />);
+};
+
+const renderTagWithValue = () => {
+  render(<Tag type="Fairy" value="2x" />);
 };
 
 describe('Tag test suite', () => {
@@ -23,5 +36,11 @@ describe('Tag test suite', () => {
 
     expect(tag).toBeInTheDocument();
     expect(tag).not.toHaveClass('color-Fighter');
+  });
+
+  it('should render tag with value', () => {
+    renderTagWithValue();
+
+    expect(screen.getByText('2x')).toBeInTheDocument();
   });
 });
