@@ -55,11 +55,15 @@ const CardDetails = () => {
         </Link>
 
         <div className={styles.imageContainer}>
-          <img
-            data-testid="logo"
-            src="/logo.png"
-            alt="Pokemon Trading Card Game logo"
-          />
+          <Link passHref href="/">
+            <a className={styles.link}>
+              <img
+                data-testid="logo"
+                src="/logo.png"
+                alt="Pokemon Trading Card Game logo"
+              />
+            </a>
+          </Link>
         </div>
       </header>
 
