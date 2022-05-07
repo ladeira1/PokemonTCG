@@ -1,20 +1,61 @@
-import { render, screen } from '@testing-library/react';
-import Home from 'pages';
 import '@testing-library/jest-dom';
+import { render, screen } from '@testing-library/react';
+import { mockedCard } from 'mocks/card';
+import Home from 'pages';
+import { Provider } from 'react-redux';
+import { store } from 'redux/store';
 
-describe('Home', () => {
-  it('renders a heading', () => {
-    render(<Home />);
+jest.mock('next/router', () => {
+  return {
+    useRouter: () => ({
+      locale: 'pt-BR',
+      defaultLocale: 'pt-BR',
+    }),
+  };
+});
 
-    const heading = screen.getByRole('heading', {
-      name: /welcome to next\.js!/i,
+jest.mock('requests/api', () => {
+  return {
+    cardsRequest: () => ({
+      data: mockedCard,
+      page: 2,
+      count: 1,
+      totalCount: 2,
+    }),
+  };
+});
+
+const renderHome = () => {
+  render(
+    <Provider store={store}>
+      <Home />
+    </Provider>,
+  );
+};
+
+const observe = jest.fn();
+
+describe('Home test suite', () => {
+  beforeEach(() => {
+    const mockIntersectionObserver = jest.fn();
+
+    mockIntersectionObserver.mockReturnValue({
+      observe,
+      unobserve: jest.fn(),
+      disconnect: jest.fn(),
     });
 
-    expect(heading).toBeInTheDocument();
+    window.IntersectionObserver = mockIntersectionObserver;
+    renderHome();
   });
 
-  it('does not render a goodbye message', () => {
-    render(<Home />);
-    expect(screen.queryByText('goodbye')).not.toBeInTheDocument();
+  it('should render Home', () => {
+    const logo = screen.getByTestId('logo');
+
+    expect(logo).toBeInTheDocument();
+  });
+
+  it('should call observer', () => {
+    expect(observe).toBeCalled();
   });
 });

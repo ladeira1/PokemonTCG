@@ -2,7 +2,9 @@ import { Translation } from 'types/Translation';
 
 export const homeTranslations: Translation = {
   'pt-BR': {
-    title: 'Olá mundo',
-    subtitle: 'em português',
+    filterInputPlaceholder: 'Insira o nome do pokemon...',
+    search: 'Buscar',
+    headContent: 'Lista de cartas de Pokemon TCG',
+    requestError: 'Algum erro ocorreu ao buscar os dados',
   },
 };

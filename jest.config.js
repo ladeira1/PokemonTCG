@@ -4,6 +4,9 @@ const createJestConfig = nextJest({
 });
 const customJestConfig = {
   moduleDirectories: ["node_modules", "<rootDir>/src/"],
+  moduleNameMapper: {
+    "\\.(scss|css|sass)$": "identity-obj-proxy"
+  },
   testEnvironment: "jest-environment-jsdom",
 };
 module.exports = createJestConfig(customJestConfig);

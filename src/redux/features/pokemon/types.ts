@@ -1,4 +1,13 @@
+import { Card } from 'types/Card';
+
 export interface PokemonState {
-  pokemons: any[]; // TO DO
+  cards: Card[];
   isLoading: boolean;
+  page: number;
+  feedbackMessage?: string;
+  shouldFetchMoreData: boolean;
+}
+
+export interface ListCardsPayload {
+  filter: string;
 }
