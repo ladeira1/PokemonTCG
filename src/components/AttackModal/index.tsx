@@ -54,7 +54,11 @@ const AttackModalBase: ForwardRefRenderFunction<
       >
         <header className={`row ${styles.header}`}>
           <h2 id={attack.name}>{attack.name}</h2>
-          <button type="button" onClick={onClose}>
+          <button
+            type="button"
+            onClick={onClose}
+            data-testid="attack-modal-close-button"
+          >
             <MdClose />
           </button>
         </header>

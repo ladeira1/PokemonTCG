@@ -36,12 +36,13 @@ export const DetailedCard = ({ card }: DetailedCardProps) => {
   };
 
   return (
-    <article className={styles.container}>
+    <article data-testid="detailed-card" className={styles.container}>
       <section className={styles.imageContainer} aria-labelledby="card-image">
         <h1 className="accessibilityOnly" id="card-image">
           {cardImage}
         </h1>
         <img
+          data-testid="detailed-card-img"
           className={styles.image}
           src={card.images.large}
           alt={`${largeCardAlt}: ${card.name}`}
