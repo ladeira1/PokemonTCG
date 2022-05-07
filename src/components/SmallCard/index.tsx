@@ -1,4 +1,6 @@
 import { TagList } from 'components/Tag/TagList';
+import { useTranslation } from 'hooks/useTranslation';
+import { smallCardTranslations } from 'translations/smallCard';
 import { Card } from 'types/Card';
 import styles from './SmallCard.module.scss';
 
@@ -7,13 +9,15 @@ interface SmallCardProps {
 }
 
 export const SmallCard = ({ card }: SmallCardProps) => {
+  const { imageAlt } = useTranslation(smallCardTranslations);
+
   return (
     <article className={styles.card}>
       <div>
         <img
           loading="lazy"
           src={card.images.small}
-          alt={`Card showing the details of a Pokemon named ${card.name}`}
+          alt={`${imageAlt} ${card.name}`}
         />
       </div>
 
