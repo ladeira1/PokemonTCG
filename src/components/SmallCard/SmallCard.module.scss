@@ -1,11 +1,8 @@
 @use 'styles/sass/colors';
 @use 'styles/sass/breakpoints';
 
-.card {
-  border: 1px solid colors.$brown400;
-  background-color: colors.$brown200;
-  border-radius: .5rem;
-  max-width: 300px;
+.link {
+  text-decoration: none;
 
   & > div {
     display: flex;
@@ -20,14 +17,44 @@
       min-height: 100%;
     }
   }
-  
-  @media screen and (min-width: breakpoints.$small) {
-    width: 100%;
+}
+
+.card {
+  text-decoration: none;
+  border: 1px solid colors.$brown400;
+  background-color: colors.$brown200;
+  border-radius: .5rem;
+  max-width: 300px;
+  cursor: pointer;
+
+  transition: transform 200ms ease;
+
+  & > div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    padding: .75rem;
+
+    img {
+      flex-shrink: 0;
+      min-width: 100%;
+      min-height: 100%;
+    }
   }
 
   section {
     flex: 1;
     padding: 0 1rem;
+  }
+
+  &:hover, &:focus-within {
+    transform: scale(1.025);
+    box-shadow: 0 0 1.5rem rgba(0, 0, 0, 0.8);
+  }
+  
+  @media screen and (min-width: breakpoints.$small) {
+    width: 100%;
   }
 }
 
