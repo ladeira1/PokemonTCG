@@ -1,10 +1,11 @@
-/* eslint-disable @typescript-eslint/no-empty-function */
-import { render, screen } from '@testing-library/react';
+import { fireEvent, render, screen } from '@testing-library/react';
 import { Input } from '.';
 import '@testing-library/jest-dom';
 
+const onChange = jest.fn();
+
 const renderInput = () => {
-  render(<Input value="marcos" onChange={() => {}} />);
+  render(<Input value="marcos" onChange={onChange} />);
 };
 
 describe('Input test suite', () => {
@@ -15,5 +16,12 @@ describe('Input test suite', () => {
 
     expect(input).toBeInTheDocument();
     expect(input).toHaveValue('marcos');
+  });
+
+  it('should call onChange when something is typed', () => {
+    const input = screen.getByTestId('input');
+
+    fireEvent.change(input, { target: { value: 'marcos 2' } });
+    expect(onChange).toHaveBeenCalled();
   });
 });
