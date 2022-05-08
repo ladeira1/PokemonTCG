@@ -1,5 +1,7 @@
 <br />
-<img align="center" src="./public/logo.png">
+<div style="display: flex; align-items: center; justify-content: center;">
+  <img align="center" src="./public/logo.png">
+</div>
 <br />
 
 # About this project
@@ -12,7 +14,7 @@ I'd be happy if you could provide me with any feedback about the project structu
 
 ## Check it out!
 
-You can quickly check the project by clicking [here](https://ladeira1-pokemon-tcg.vercel.app/).
+You can quickly check the project by clicking [here](https://ladeira1-pokemon-tcg.vercel.app/)!
 
 ## Running the project locally
 
