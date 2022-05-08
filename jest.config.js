@@ -4,6 +4,7 @@ const createJestConfig = nextJest({
 });
 const customJestConfig = {
   moduleDirectories: ["node_modules", "<rootDir>/src/"],
+  testPathIgnorePatterns: ["<rootDir>/src/cypress/"],
   moduleNameMapper: {
     "\\.(scss|css|sass)$": "identity-obj-proxy"
   },
