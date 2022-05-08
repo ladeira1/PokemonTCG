@@ -1,34 +1,72 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<br />
+<div style="display: flex; align-items: center; justify-content: center;">
+  <img align="center" src="./public/logo.png">
+</div>
+<br />
 
-## Getting Started
+# About this project
 
-First, run the development server:
+Pokemon TCG is a card game based on the Pokemon world.
 
-```bash
-npm run dev
-# or
-yarn dev
+This project is a website that consumes their [public API](https://pokemontcg.io/) and lists it's cards. Allowing the user to filter by name and check the details of those that caught it's attention.
+
+I'd be happy if you could provide me with any feedback about the project structure, code or anything that could make it better!
+
+## Check it out!
+
+You can quickly check the project by clicking [here](https://ladeira1-pokemon-tcg.vercel.app/)!
+
+## Running the project locally
+
+If you want to clone the project to test it locally and make any change to it, you can do so by following the next steps:
+
+### Prerequisites
+
+To run the project, you'll need to have a basic environment to run a Next App, which you can find [here](https://nextjs.org/).
+
+### Clonning the repository
+
+```
+# Clone the repository
+$ git clone https://github.com/ladeira1/PokemonTCG.git
+
+# Access the cloned directory
+$ cd pokemon-api
+
+# Install the project's dependencies
+$ npm install or yarn
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Environtment Variables
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+This project consumes the Pokemon TCG API, so you'll need to generate an API key [here](https://pokemontcg.io/) to use it.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+#### .env file
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+First you will need to create a .env file at the root of the repository and then paste your generated Pokemon TCG API key like this:
 
-## Learn More
+```
+API_KEY={your_api_token}
+```
 
-To learn more about Next.js, take a look at the following resources:
+### Running the application
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```
+# Run the application
+$ npm run dev or yarn dev
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+# Get in touch!
 
-## Deploy on Vercel
+<div align="center">
+  <a href="https://www.linkedin.com/in/ladeira1/">
+    <img align="left" alt="João's LinkedIN" width="22px" src="https://raw.githubusercontent.com/peterthehan/peterthehan/master/assets/linkedin.svg" />
+  </a>
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+  <a href="mailto:joaoladeirag@gmail.com">
+    <img align="left" alt="João's Gmail" height="25px" src="https://img.shields.io/badge/-joaoladeirag@gmail.com-263238?style=flat-square&labelColor=263238&logo=gmail&logoColor=white&link=mailto:joaoladeirag@gmail.com" />
+  </a>
+  <br/>
+  </div>
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+  <br />
