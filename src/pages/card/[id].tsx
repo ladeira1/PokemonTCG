@@ -49,7 +49,7 @@ const CardDetails = () => {
 
       <header className={styles.header}>
         <Link passHref href="/">
-          <a className={styles.link}>
+          <a data-testid="detailed-card-return-button" className={styles.link}>
             <MdChevronLeft />
           </a>
         </Link>

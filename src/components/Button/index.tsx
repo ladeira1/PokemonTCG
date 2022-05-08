@@ -7,7 +7,12 @@ interface ButtonProps {
 
 export const Button = ({ children, onClick }: ButtonProps) => {
   return (
-    <button className={styles.button} type="button" onClick={onClick}>
+    <button
+      data-testid="button"
+      className={styles.button}
+      type="button"
+      onClick={onClick}
+    >
       <p>{children}</p>
     </button>
   );
