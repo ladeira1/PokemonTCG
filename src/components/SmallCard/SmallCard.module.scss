@@ -25,7 +25,9 @@
   background-color: colors.$brown200;
   border-radius: .5rem;
   max-width: 300px;
+  min-width: 200px;
   cursor: pointer;
+  height: 100%;
 
   transition: transform 200ms ease;
 
