@@ -51,6 +51,7 @@ const AttackModalBase: ForwardRefRenderFunction<
         onKeyDown={event => event.stopPropagation()}
         aria-labelledby={attack.name}
         className={styles.content}
+        data-testid="attack-modal"
       >
         <header className={`row ${styles.header}`}>
           <h2 id={attack.name}>{attack.name}</h2>
