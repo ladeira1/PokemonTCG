@@ -58,7 +58,9 @@ export const DetailedCard = ({ card }: DetailedCardProps) => {
         >
           <div className={`row ${styles.title}`}>
             <h2 id={card.name}>{card.name}</h2>
-            <p className={styles.id}>{card.id}</p>
+            <p data-testid="detailed-card-id" className={styles.id}>
+              {card.id}
+            </p>
           </div>
 
           <TagList
