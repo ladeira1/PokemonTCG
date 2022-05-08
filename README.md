@@ -31,7 +31,7 @@ To run the project, you'll need to have a basic environment to run a Next App, w
 $ git clone https://github.com/ladeira1/PokemonTCG.git
 
 # Access the cloned directory
-$ cd pokemon-api
+$ cd PokemonTCG
 
 # Install the project's dependencies
 $ npm install or yarn
