@@ -25,8 +25,14 @@ const Home: NextPage = () => {
   const dispatch = useAppDispatch();
   const [filter, setFilter] = useState('');
 
-  const { filterInputPlaceholder, logoAlt, search, headContent, requestError } =
-    useTranslation(homeTranslations);
+  const {
+    filterInputPlaceholder,
+    logoAlt,
+    search,
+    headContent,
+    requestError,
+    noCardFound,
+  } = useTranslation(homeTranslations);
 
   const { error } = useToast();
 
@@ -81,6 +87,11 @@ const Home: NextPage = () => {
                 </li>
               ))}
             </ul>
+          )}
+          {cards?.length === 0 && !shouldFetchMoreData && (
+            <p data-testid="home-no-card-found" className={styles.noCardFound}>
+              {noCardFound}
+            </p>
           )}
           {isLoading && <Spinner />}
         </InfiniteScroller>

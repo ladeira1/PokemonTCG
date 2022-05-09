@@ -7,5 +7,6 @@ export const homeTranslations: Translation = {
     headContent: 'Lista de cartas de Pokemon TCG',
     requestError: 'Algum erro ocorreu ao buscar os dados',
     logoAlt: 'Logo do Pokemon Trading Card Game',
+    noCardFound: 'Nenhuma carta foi encontrada',
   },
 };
