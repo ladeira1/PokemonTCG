@@ -31,4 +31,10 @@ describe('Home test suite', () => {
       cy.url().should('include', `/card/${id}`);
     });
   });
+
+  it('should find a message saying that no card was found when no card is found', () => {
+    cy.get(`[data-testid=input]`).type('No card with this name');
+    cy.get(`[data-testid=button]`).click();
+    cy.get(`[data-testid=home-no-card-found]`).should('exist');
+  });
 });
