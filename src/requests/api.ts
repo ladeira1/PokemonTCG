@@ -6,7 +6,7 @@ export const cardsRequest = async (page: number, filter: string) => {
     orderBy: 'name',
     page,
     pageSize: 50,
-    q: `${filter && `name:*${filter}*`} supertype:Pokemon`,
+    q: `${filter && `name:"*${filter}*"`} supertype:Pokemon`,
   };
   const response = await axios.get(`/api/cards?${parseFilterParams(params)}`);
 
